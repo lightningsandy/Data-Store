@@ -8,37 +8,75 @@ A file based key-value data store that supports basic CRD operations
 4) initiate the class and start using the available methods
 
 ```
-const DataStore = require('./DataStore.js');
 
-let file1 = new DataStore("santhosh", "."); // ==> object instatiation. syntax: Datastore(String filename, String path)
+//require the library in your project
 
-file1.create("details", {  //=> create method. syntax : create(String key, JSON value, INT timetolive)
-    12 : 2,  
+ const DataStore = require('./DataStore.js');
+
+
+
+
+/*
+   Constructor initialize the DataStore with default storage location at home directory
+   syntax: const file = new DataStore(String filename, String path)
+
+   @param filename
+                  the name of the file to save the data
+
+    @param path(optional)
+                   Location path to save file
+*/
+
+const file1 = new DataStore("santhosh", "."); 
+
+
+/*  
+  CREATE
+   Method to create a pair in the dataStore
+   Syntax: file.create(String key, JSONobject value, Int timeToLive);
+
+    @param key
+                  the key of the element
+
+    @param value
+                   The value of the element
+
+     @param timeToLIve(optional)
+                   Time limit of element in seconds
+*/
+
+file.create("details", {    
     "age": 21, 
     "language": ["JavaScript", "PHP", "Python"]  
   }, 2);
 
-  file1.create("details1", {  
-    "name": "lol",  
-    "age": 21, 
-    "language": ["JavaScript", "PHP", "Python"]  
-  });
 
-  file1.create("details2", {  
-    "neme": "lol",  
-    "age": 21, 
-    "language": ["JavaScript", "PHP", "Python"]  
-  }, 10);
+/*  
+  READ
+   Method to read a pair in the dataStore
+   Syntax: file.read(String key);
 
-  file1.create("details2", {  
-    "neme": "lol",  
-    "age": 21, 
-    "language": ["JavaScript", "PHP", "Python"]  
-  });
+    @param key
+                  the key of the element
+
+*/
+
+console.log(file.read("details"));
 
 
-  file1.del("details3"); // => delete method. syntax : del(key)
-  file1.del("details20"); 
 
-  console.log(file1.read("details10")); // = >read method. syntax: read(key)
+/*  
+  DELETE
+   Method to delete a pair in the dataStore
+   Syntax: file.del(String key);
+
+    @param key
+                  the key of the element
+
+*/
+
+  file.del("details");
+ 
+
+ 
 ```

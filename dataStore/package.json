@@ -1,0 +1,16 @@
+{
+  "name": "datastore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "santhosh v s",
+  "license": "ISC",
+  "dependencies": {
+    "get-value": "^3.0.1",
+    "json-size": "^1.0.0",
+    "set-value": "^3.0.2"
+  }
+}
